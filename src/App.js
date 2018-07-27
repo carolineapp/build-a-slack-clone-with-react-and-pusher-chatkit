@@ -13,8 +13,8 @@ class App extends Component {
   }
 
   onUsernameSubmitted(username) {
-    console.log("NAMES", username);
-    fetch("http://localhost:3001/users", {
+    console.log("NAME", username);
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

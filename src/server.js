@@ -1,4 +1,4 @@
-import { instanceLocator, chatkitKey } from "./src/index.js";
+import { instanceLocator, chatkitKey } from "./config.js";
 
 const express = require("express");
 const bodyParser = require("body-parser");
