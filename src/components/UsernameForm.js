@@ -12,7 +12,6 @@ class UsernameForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log("NAME2", this.state.username);
     this.props.onSubmit(this.state.username);
   }
 
