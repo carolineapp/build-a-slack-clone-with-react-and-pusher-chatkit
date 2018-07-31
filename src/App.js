@@ -14,7 +14,7 @@ class App extends Component {
 
   onUsernameSubmitted(username) {
     console.log("NAME", username);
-    fetch("http://localhost:3001/users", {
+    fetch("https://schlack.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
