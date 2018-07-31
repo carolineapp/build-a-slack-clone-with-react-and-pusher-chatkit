@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import MessageList from "./components/MessageList";
+import MessageList from "./MessageList";
 import Chatkit from "@pusher/chatkit";
-import SendMessageForm from "./components/SendMessageForm";
-// import { instanceLocator, chatkitKey, tokenProvider } from "./config.js";
+import SendMessageForm from "./SendMessageForm";
 
 class ChatScreen extends Component {
   constructor(props) {
@@ -23,13 +22,11 @@ class ChatScreen extends Component {
   }
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({
-      instanceLocator: "v1:us1:6b55df7b-3005-459c-b861-6033487ab8d6",
+      instanceLocator: process.env.REACT_APP_PUSHER_INSTANCE,
       userId: this.props.currentUsername,
-      key:
-        "aca5b732-44b9-45bf-a029-f6bcacfbac9c:5u4ZZnU/NpPt1ZCuYWg08JcLyE0YvPwuXvTOHPIiZ5c=",
+      key: process.env.REACT_APP_PUSHER_KEY,
       tokenProvider: new Chatkit.TokenProvider({
-        url:
-          "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/6b55df7b-3005-459c-b861-6033487ab8d6/token"
+        url: process.env.REACT_APP_PUSHER_URL
       })
     });
 
@@ -37,9 +34,8 @@ class ChatScreen extends Component {
       .connect()
       .then(currentUser => {
         this.setState({ currentUser });
-        console.log("THIS IS USER", currentUser);
         return currentUser.subscribeToRoom({
-          roomId: 12490153,
+          roomId: 12861231,
           messageLimit: 100,
           hooks: {
             onNewMessage: message => {
@@ -54,10 +50,8 @@ class ChatScreen extends Component {
         this.setState({ currentRoom });
       })
       .catch(error => console.error("error", error));
-    console.log("catching");
   }
   render() {
-    console.log(this.state.currentUser);
     const styles = {
       container: {
         height: "100vh",
