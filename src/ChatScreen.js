@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MessageList from "./components/MessageList";
 import Chatkit from "@pusher/chatkit";
 import SendMessageForm from "./components/SendMessageForm";
-import { instanceLocator, chatkitKey, tokenProvider } from "./config.js";
+// import { instanceLocator, chatkitKey, tokenProvider } from "./config.js";
 
 class ChatScreen extends Component {
   constructor(props) {
@@ -12,11 +12,10 @@ class ChatScreen extends Component {
       currentRoom: {},
       messages: []
     };
-    this.subMessage = this.subMessage.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
   }
 
-  subMessage(text) {
-    console.log("USER", this.state.currentUser);
+  submitMessage(text) {
     this.state.currentUser.sendMessage({
       text,
       roomId: this.state.currentRoom.id
@@ -24,11 +23,13 @@ class ChatScreen extends Component {
   }
   componentDidMount() {
     const chatManager = new Chatkit.ChatManager({
-      instanceLocator: instanceLocator,
+      instanceLocator: "v1:us1:6b55df7b-3005-459c-b861-6033487ab8d6",
       userId: this.props.currentUsername,
-      key: chatkitKey,
+      key:
+        "aca5b732-44b9-45bf-a029-f6bcacfbac9c:5u4ZZnU/NpPt1ZCuYWg08JcLyE0YvPwuXvTOHPIiZ5c=",
       tokenProvider: new Chatkit.TokenProvider({
-        url: tokenProvider
+        url:
+          "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/6b55df7b-3005-459c-b861-6033487ab8d6/token"
       })
     });
 
@@ -93,7 +94,7 @@ class ChatScreen extends Component {
               messages={this.state.messages}
               style={styles.chatList}
             />
-            <SendMessageForm onSubmit={this.subMessage} />
+            <SendMessageForm onSubmit={this.submitMessage} />
           </section>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { instanceLocator, chatkitKey } from "./config.js";
+// import { instanceLocator, chatkitKey } from "./config.js";
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -7,8 +7,9 @@ const Chatkit = require("pusher-chatkit-server");
 const app = express();
 
 const chatkit = new Chatkit.default({
-  instanceLocator: instanceLocator,
-  key: chatkitKey
+  instanceLocator: "v1:us1:6b55df7b-3005-459c-b861-6033487ab8d6",
+  key:
+    "aca5b732-44b9-45bf-a029-f6bcacfbac9c:5u4ZZnU/NpPt1ZCuYWg08JcLyE0YvPwuXvTOHPIiZ5c="
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
