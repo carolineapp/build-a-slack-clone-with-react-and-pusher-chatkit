@@ -55,12 +55,10 @@ class ChatScreen extends Component {
     const styles = {
       container: {
         height: "100vh",
-        display: "flex",
-        flexDirection: "column"
+        display: "flex"
       },
       chatContainer: {
-        display: "flex",
-        flex: 1
+        display: "flex"
       },
       whosOnlineListContainer: {
         width: "100%",
@@ -69,10 +67,11 @@ class ChatScreen extends Component {
         padding: 20,
         backgroundColor: "#002980",
         color: "white"
+        textAlign: "center"
       },
       chatListContainer: {
         padding: 20,
-        width: "85%",
+        width: "100%",
         display: "flex",
         flexDirection: "column"
       }
@@ -80,10 +79,10 @@ class ChatScreen extends Component {
 
     return (
       <div style={styles.container}>
+        <div style={styles.whosOnlineListContainer}>
+          <h2>Networky</h2>
+        </div>
         <div style={styles.chatContainer}>
-          <div style={styles.whosOnlineListContainer}>
-            <h2>Networky</h2>
-          </div>
           <section style={styles.chatListContainer}>
             <MessageList
               messages={this.state.messages}
