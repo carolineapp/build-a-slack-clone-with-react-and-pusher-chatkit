@@ -66,7 +66,7 @@ class ChatScreen extends Component {
         flex: "none",
         padding: 20,
         backgroundColor: "#002980",
-        color: "white"
+        color: "white",
         textAlign: "center"
       },
       chatListContainer: {
