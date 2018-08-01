@@ -35,7 +35,7 @@ class ChatScreen extends Component {
       .then(currentUser => {
         this.setState({ currentUser });
         return currentUser.subscribeToRoom({
-          roomId: 12861231,
+          roomId: 12921462,
           messageLimit: 100,
           hooks: {
             onNewMessage: message => {
@@ -63,10 +63,11 @@ class ChatScreen extends Component {
         flex: 1
       },
       whosOnlineListContainer: {
-        width: "300px",
+        width: "100%",
+        height: "100px",
         flex: "none",
         padding: 20,
-        backgroundColor: "#2c303b",
+        backgroundColor: "#002980",
         color: "white"
       },
       chatListContainer: {
@@ -80,9 +81,9 @@ class ChatScreen extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.chatContainer}>
-          <aside style={styles.whosOnlineListContainer}>
-            <h2>Woooooo look at this amazing chat app</h2>
-          </aside>
+          <div style={styles.whosOnlineListContainer}>
+            <h2>Networky</h2>
+          </div>
           <section style={styles.chatListContainer}>
             <MessageList
               messages={this.state.messages}
