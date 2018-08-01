@@ -78,18 +78,20 @@ class ChatScreen extends Component {
     };
 
     return (
-      <div style={styles.container}>
+      <div>
         <div style={styles.whosOnlineListContainer}>
           <h2>Networky</h2>
         </div>
-        <div style={styles.chatContainer}>
-          <section style={styles.chatListContainer}>
-            <MessageList
-              messages={this.state.messages}
-              style={styles.chatList}
-            />
-            <SendMessageForm onSubmit={this.submitMessage} />
-          </section>
+        <div style={styles.container}>
+          <div style={styles.chatContainer}>
+            <section style={styles.chatListContainer}>
+              <MessageList
+                messages={this.state.messages}
+                style={styles.chatList}
+              />
+              <SendMessageForm onSubmit={this.submitMessage} />
+            </section>
+          </div>
         </div>
       </div>
     );
